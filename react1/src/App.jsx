@@ -1,47 +1,108 @@
-import { useState } from "react";
-
 function App() {
-  const [gender, setGender] = useState("Female");
-  const [city, setCity] = useState("");
-  const handleChange = (e) => {
-    setCity(e.target.value);
-  };
+  const userData = [
+    {
+      id: 1,
+      name: "Ankit",
+      age: 23,
+      email: "ankit@gmail.com",
+    },
+    {
+      id: 2,
+      name: "Tanjal",
+      age: 18,
+      email: "tanjal@gmail.com",
+    },
+    {
+      id: 3,
+      name: "Ram",
+      age: 19,
+      email: "ram@gmail.com",
+    },
+    {
+      id: 4,
+      name: "Rohan",
+      age: 23,
+      email: "rohan@gmail.com",
+    },
+  ];
   return (
     <div>
-      <h1>Handle radio and Dropdown</h1>
-      <h3>Select Gender</h3>
-      <input
-        onChange={(e) => setGender(e.target.value)}
-        type="radio"
-        name="gender"
-        id="Male"
-        value={"Male"}
-        checked={gender == "Male"}
-      />
-      <label htmlFor="Male">Male</label>
+      <h1>Loop in JSX with Map Function </h1>
 
-      <input
-        onChange={(e) => setGender(e.target.value)}
-        type="radio"
-        name="gender"
-        id="Female"
-        value={"Female"}
-        checked={gender == "Female"}
-      />
-      <label htmlFor="Female">Female</label>
-      <h2>Selected Gender : {gender}</h2>
-      <br />
-      <br />
-      <h4>Select City</h4>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>EMail</th>
+          </tr>
+        </thead>
+        <tbody>
+          {userData.map((user) => (
+            <tr key={user.id}>
+              <td>{user.id}</td>
+              <td>{user.name}</td>
+              <td>{user.age}</td>
+              <td>{user.email}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
 
-      <select value={city} name="" id="" onChange={handleChange}>
-        <option value="">-- Select City --</option>
-        <option value="Delhi">Delhi</option>
-        <option value="Mumbai">Mumbai</option>
-        <option value="Bangalore">Bangalore</option>
-        <option value="Kolkata">Kolkata</option>
-      </select>
-      <h2>Selected City : {city}</h2>
+      <h2>Printed Manually</h2>
+      <table border="1">
+        <thead>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>EMail</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Ankit</td>
+            <td>13</td>
+            <td>ankit@gmail.com</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Ankit</td>
+            <td>13</td>
+            <td>ankit@gmail.com</td>
+          </tr>{" "}
+          <tr>
+            <td>1</td>
+            <td>Ankit</td>
+            <td>13</td>
+            <td>ankit@gmail.com</td>
+          </tr>{" "}
+          <tr>
+            <td>1</td>
+            <td>Ankit</td>
+            <td>13</td>
+            <td>ankit@gmail.com</td>
+          </tr>{" "}
+          <tr>
+            <td>1</td>
+            <td>Ankit</td>
+            <td>13</td>
+            <td>ankit@gmail.com</td>
+          </tr>{" "}
+          <tr>
+            <td>1</td>
+            <td>Ankit</td>
+            <td>13</td>
+            <td>ankit@gmail.com</td>
+          </tr>{" "}
+          <tr>
+            <td>1</td>
+            <td>Ankit</td>
+            <td>13</td>
+            <td>ankit@gmail.com</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 }
