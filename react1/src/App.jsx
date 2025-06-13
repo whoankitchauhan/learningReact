@@ -1,74 +1,47 @@
-import { useState } from "react";
-import Clock from "./Clock";
+import College from "./Colllege";
 
 function App() {
-  const [color, setColor] = useState("purple");
-  const [fontSize, setFontSize] = useState("24px");
-  const [theme, setTheme] = useState("light");
-
+  const college = [
+    {
+      name: "VIPS",
+      location: "Pitampura",
+      package: "10LPA",
+      student: [
+        { name: "Ankit", rollNo: 10, email: "ankit@gmail.com" },
+        { name: "Rahul", rollNo: 11, email: "rahul@gmail.com" },
+        { name: "Sita", rollNo: 12, email: "sita@gmail.com" },
+      ],
+    },
+    {
+      name: "IIIT",
+      location: "Delhi",
+      package: "55LPA",
+      student: [
+        { name: "Rohan", rollNo: 21, email: "rohan@gmail.com" },
+        { name: "Mohan", rollNo: 22, email: "mohan@gmail.com" },
+        { name: "Geeta", rollNo: 23, email: "geeta@gmail.com" },
+      ],
+    },
+    {
+      name: "MAIT",
+      location: "Mumbai",
+      package: "95LPA",
+      student: [
+        { name: "Priya", rollNo: 31, email: "priya@gmail.com" },
+        { name: "Arjun", rollNo: 32, email: "arjun@gmail.com" },
+        { name: "Ravi", rollNo: 33, email: "ravi@gmail.com" },
+      ],
+    },
+  ];
   return (
-    <div
-      style={{
-        padding: "30px",
-        backgroundColor: theme === "dark" ? "#121212" : "#f0f0f0",
-        color: theme === "dark" ? "white" : "black",
-        minHeight: "100vh",
-        textAlign: "center",
-        transition: "all 0.3s",
-      }}
-    >
-      <h1>🕒 Custom Digital Clock</h1>
+    <div>
+      <h1>Nested Looping With Component</h1>
 
-      <div style={{ margin: "20px 0" }}>
-        <label>
-          Select Background Color:
-          <select
-            value={color}
-            onChange={(e) => setColor(e.target.value)}
-            style={{ marginLeft: "10px" }}
-          >
-            <option value="purple">Purple</option>
-            <option value="red">Red</option>
-            <option value="blue">Blue</option>
-            <option value="green">Green</option>
-          </select>
-        </label>
-      </div>
-
-      <div style={{ margin: "20px 0" }}>
-        <label>
-          Select Font Size:
-          <select
-            value={fontSize}
-            onChange={(e) => setFontSize(e.target.value)}
-            style={{ marginLeft: "10px" }}
-          >
-            <option value="24px">24px</option>
-            <option value="32px">32px</option>
-            <option value="40px">40px</option>
-            <option value="48px">48px</option>
-          </select>
-        </label>
-      </div>
-
-      <div style={{ margin: "20px 0" }}>
-        <label>
-          Theme:
-          <button
-            style={{
-              marginLeft: "10px",
-              padding: "5px 10px",
-              cursor: "pointer",
-              backgroundColor: theme === "dark" ? "#444" : "#ddd",
-            }}
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          >
-            Toggle {theme === "dark" ? "Light" : "Dark"} Mode
-          </button>
-        </label>
-      </div>
-
-      <Clock color={color} fontSize={fontSize} />
+      {college.map((data, index) => (
+        <div key={index}>
+          <College data={data}/>
+        </div>
+      ))}
     </div>
   );
 }
