@@ -7,7 +7,13 @@ function Counter({ counter, data }) {
 
   useEffect(() => {
     onceOnly();
-  },[counter]);
+  }, [counter, data]);
+
+  useEffect(() => {
+    return () => {
+      console.log("Component Unmounted");
+    };
+  }, []);
   return (
     <div>
       <h1>Counter Value : {counter}</h1>
