@@ -1,19 +1,10 @@
-import UserProfile from "./userProfile";
+import { Button } from 'react-bootstrap';
 
 function App() {
   return (
     <>
-      <h1>Style With Module CSS</h1>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
-        <UserProfile />
-        <UserProfile />
-        <UserProfile />
-        <UserProfile />
-        <UserProfile />
-        <UserProfile />
-        <UserProfile />
-        <UserProfile />
-      </div>
+      <h1>React Bootstrap Example</h1>
+      <Button>Click Me</Button>
     </>
   );
 }
