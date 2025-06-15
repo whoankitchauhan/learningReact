@@ -1,19 +1,102 @@
-import { useState } from "react";
-import Counter from "./Counter";
+import "./css/style.css";
 
 function App() {
-  const [counter, setCounter] = useState(0);
-  const [data, setData] = useState(0);
-  const [visible, setVisisble] = useState(true);
-
   return (
-    <div>
-      <button onClick={() => setCounter(counter + 1)}>Counter</button>
-      <button onClick={() => setData(data + 1)}>Data</button>
-      <button onClick={() => setVisisble(!visible)}>Toggle</button>
-
-      {visible ? <Counter counter={counter} data={data} /> : null}
-    </div>
+    <>
+      <h1 className="heading">External Style</h1>
+      <div className="main-div">
+        <div className="card">
+          <div>
+            <img className="img" src="https://picsum.photos/200" alt="" />
+          </div>
+          <div>
+            <h2>Ankit Chauhan</h2>
+            <p>Software Developer</p>
+          </div>
+        </div>
+        <div className="card">
+          <div>
+            <img className="img" src="https://picsum.photos/200" alt="" />
+          </div>
+          <div>
+            <h2>Ankit Chauhan</h2>
+            <p>Software Developer</p>
+          </div>
+        </div>
+        <div className="card">
+          <div>
+            <img className="img" src="https://picsum.photos/200" alt="" />
+          </div>
+          <div>
+            <h2>Ankit Chauhan</h2>
+            <p>Software Developer</p>
+          </div>
+        </div>
+        <div className="card">
+          <div>
+            <img className="img" src="https://picsum.photos/200" alt="" />
+          </div>
+          <div>
+            <h2>Ankit Chauhan</h2>
+            <p>Software Developer</p>
+          </div>
+        </div>
+        <div className="card">
+          <div>
+            <img className="img" src="https://picsum.photos/200" alt="" />
+          </div>
+          <div>
+            <h2>Ankit Chauhan</h2>
+            <p>Software Developer</p>
+          </div>
+        </div>
+        <div className="card">
+          <div>
+            <img className="img" src="https://picsum.photos/200" alt="" />
+          </div>
+          <div>
+            <h2>Ankit Chauhan</h2>
+            <p>Software Developer</p>
+          </div>
+        </div>
+        <div className="card">
+          <div>
+            <img className="img" src="https://picsum.photos/200" alt="" />
+          </div>
+          <div>
+            <h2>Ankit Chauhan</h2>
+            <p>Software Developer</p>
+          </div>
+        </div>
+        <div className="card">
+          <div>
+            <img className="img" src="https://picsum.photos/200" alt="" />
+          </div>
+          <div>
+            <h2>Ankit Chauhan</h2>
+            <p>Software Developer</p>
+          </div>
+        </div>
+        <div className="card">
+          <div>
+            <img className="img" src="https://picsum.photos/200" alt="" />
+          </div>
+          <div>
+            <h2>Ankit Chauhan</h2>
+            <p>Software Developer</p>
+          </div>
+        </div>
+        <div className="card">
+          <div>
+            <img className="img" src="https://picsum.photos/200" alt="" />
+          </div>
+          <div>
+            <h2>Ankit Chauhan</h2>
+            <p>Software Developer</p>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
