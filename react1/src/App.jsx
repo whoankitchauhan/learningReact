@@ -4,7 +4,16 @@ function App() {
   return (
     <>
       <h1>Style With Module CSS</h1>
-      <UserProfile />
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
+        <UserProfile />
+        <UserProfile />
+        <UserProfile />
+        <UserProfile />
+        <UserProfile />
+        <UserProfile />
+        <UserProfile />
+        <UserProfile />
+      </div>
     </>
   );
 }
