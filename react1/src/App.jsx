@@ -1,17 +1,20 @@
-import User from "./User";
+import React, { useRef } from "react";
+import ChildInput from "./ChildInput";
 
 function App() {
-  function givingAlert(name) {
-    alert("Function Called : "+ name );
-  }
+  const inputRef = useRef();
+
+  const focusInput = () => {
+    inputRef.current.focus();
+  };
+
   return (
     <div>
-      <h1>Called Parent Component Function from Child Component</h1>
-      <User givingAlert={givingAlert} name="Ankit Chauhan" />
-      <hr />
-      <User givingAlert={givingAlert} name="Rahul Rana" />
-      <hr /> 
-      <User givingAlert={givingAlert} name="Banti Mota"/>
+      <h1>forwardRef Example</h1>
+      <ChildInput ref={inputRef} />
+      <br />
+      <br />
+      <button onClick={focusInput}>Focus on Child Input</button>
     </div>
   );
 }
