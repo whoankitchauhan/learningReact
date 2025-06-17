@@ -1,27 +1,31 @@
-import { useState, useTransition } from "react";
+import { useState } from "react";
 
 function App() {
-  const [isPending, startTransition] = useTransition();
-
-  const handleClick = () => {
-    startTransition(async () => {
-      await new Promise((res) => setTimeout(res, 5000));
-    });
+  const [users, setUsers] = useState([]);
+  const [user, setUser] = useState();
+  const handleAddUsers = () => {
+    setUsers([...users, user]);
   };
-
+  const totalUser = users.length;
+  const lastUser = users[users.length - 1];
+  const uniqueUsers = [...new Set(users)].length;
   return (
     <div>
-      <h1>useTransition Hook</h1>
-      {isPending ? (
-        <img
-          style={{ width: "100px" }}
-          src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Youtube_loading_symbol_1_(wobbly).gif"
-          alt=""
-        />
-      ) : null}
-      <button disabled={isPending} onClick={handleClick}>
-        {isPending ? "Pending..." : "Click"}
-      </button>
+      <h1>Learning Derived State</h1>
+
+      <h2>Total Users : {totalUser}</h2>
+      <h2>Last Users :{lastUser}</h2>
+      <h2>Unique Users :{uniqueUsers}</h2>
+
+      <input
+        onChange={(event) => setUser(event.target.value)}
+        type="text"
+        placeholder="Add New User"
+      />
+      <button onClick={handleAddUsers}>Add User !</button>
+      {users.map((item, index) => (
+        <h4 key={index}>{item}</h4>
+      ))}
     </div>
   );
 }
