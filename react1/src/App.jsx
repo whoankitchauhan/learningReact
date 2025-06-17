@@ -10,22 +10,22 @@ function App() {
     console.log(pending);
     return (
       <div>
-        <form action={handleSubmit}>
-          <input type="text" placeholder="Enter Username" />
-          <br />
-          <input type="password" placeholder="Enter Password" />
-          <br />
-          <button disabled={pending}>
-            {pending ? "Submitting..." : "Submit"}
-          </button>
-        </form>
+        <input type="text" placeholder="Enter Username" />
+        <br />
+        <input type="password" placeholder="Enter Password" />
+        <br />
+        <button disabled={pending}>
+          {pending ? "Submitting..." : "Submit"}
+        </button>
       </div>
     );
   }
   return (
     <div>
       <h1>UseFormStatus</h1>
-      <Customerform />
+      <form action={handleSubmit}>
+        <Customerform />
+      </form>
     </div>
   );
 }
