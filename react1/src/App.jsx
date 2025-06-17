@@ -1,31 +1,27 @@
-import { useFormStatus } from "react-dom";
+import { useState, useTransition } from "react";
+
 function App() {
-  const handleSubmit = async () => {
-    await new Promise((res) => setTimeout(res, 2000));
-    console.log("Submit");
+  const [isPending, startTransition] = useTransition();
+
+  const handleClick = () => {
+    startTransition(async () => {
+      await new Promise((res) => setTimeout(res, 5000));
+    });
   };
 
-  function Customerform() {
-    const { pending } = useFormStatus();
-    console.log(pending);
-    return (
-      <div>
-        <input type="text" placeholder="Enter Username" />
-        <br />
-        <input type="password" placeholder="Enter Password" />
-        <br />
-        <button disabled={pending}>
-          {pending ? "Submitting..." : "Submit"}
-        </button>
-      </div>
-    );
-  }
   return (
     <div>
-      <h1>UseFormStatus</h1>
-      <form action={handleSubmit}>
-        <Customerform />
-      </form>
+      <h1>useTransition Hook</h1>
+      {isPending ? (
+        <img
+          style={{ width: "100px" }}
+          src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Youtube_loading_symbol_1_(wobbly).gif"
+          alt=""
+        />
+      ) : null}
+      <button disabled={isPending} onClick={handleClick}>
+        {isPending ? "Pending..." : "Click"}
+      </button>
     </div>
   );
 }
