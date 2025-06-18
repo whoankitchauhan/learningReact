@@ -2,6 +2,7 @@ import { useState } from "react";
 
 function App() {
   const [data, setData] = useState(["Ankit", "Rahul", "Manish"]);
+
   const [dataInDetails, setDataInDetails] = useState([
     {
       name: "Ankit",
@@ -21,29 +22,43 @@ function App() {
   ]);
 
   const handleUser = (lastName) => {
-    data[data.length - 1] = lastName;
-    setData([...data]);
+    setData((prev) => {
+      const updated = [...prev];
+      updated[updated.length - 1] = lastName;
+      return updated;
+    });
   };
+
   const handleAge = (lastAge) => {
-    dataInDetails[dataInDetails.length - 1].age = lastAge;
-    setDataInDetails([...dataInDetails]);
+    setDataInDetails((prev) => {
+      const updated = [...prev];
+      updated[updated.length - 1] = {
+        ...updated[updated.length - 1],
+        age: Number(lastAge), // ensure it's a number
+      };
+      return updated;
+    });
   };
+
   return (
     <div>
       <h1>Updating Array in States</h1>
+
       <input
         type="text"
         onChange={(e) => handleUser(e.target.value)}
-        placeholder="Enter Last Name"
+        placeholder="Update Last Name"
       />
       {data.map((item, index) => (
         <h3 key={index}>{item}</h3>
       ))}
+
       <hr />
+
       <input
-        type="text"
+        type="number"
         onChange={(e) => handleAge(e.target.value)}
-        placeholder="Enter Last User Age"
+        placeholder="Update Last User Age"
       />
       {dataInDetails.map((item, index) => (
         <h3 key={index}>
