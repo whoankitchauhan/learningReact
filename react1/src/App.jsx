@@ -1,46 +1,55 @@
 import { useState } from "react";
 
 function App() {
-  const [data, setData] = useState({
-    name: "Ankit Chauhan",
-    address: {
-      city: "Delhi",
-      country: "India",
+  const [data, setData] = useState(["Ankit", "Rahul", "Manish"]);
+  const [dataInDetails, setDataInDetails] = useState([
+    {
+      name: "Ankit",
+      age: 23,
+      email: "ankit@gmail.com",
     },
-  });
-  const handleName = (inputName) => {
-    setData((prevData) => ({
-      ...prevData,
-      name: inputName,
-    }));
-  };
+    {
+      name: "Aryan",
+      age: 23,
+      email: "rahul@gmail.com",
+    },
+    {
+      name: "Rohan",
+      age: 23,
+      email: "manish@gmail.com",
+    },
+  ]);
 
-  const handleCity = (inputCity) => {
-    setData((prevData) => ({
-      ...prevData,
-      address: {
-        ...prevData.address,
-        city: inputCity,
-      },
-    }));
+  const handleUser = (lastName) => {
+    data[data.length - 1] = lastName;
+    setData([...data]);
+  };
+  const handleAge = (lastAge) => {
+    dataInDetails[dataInDetails.length - 1].age = lastAge;
+    setDataInDetails([...dataInDetails]);
   };
   return (
     <div>
-      <h1>Updating Objects in States</h1>
+      <h1>Updating Array in States</h1>
       <input
         type="text"
-        onChange={(event) => handleName(event.target.value)}
-        placeholder="Enter User Name"
+        onChange={(e) => handleUser(e.target.value)}
+        placeholder="Enter Last Name"
       />
+      {data.map((item, index) => (
+        <h3 key={index}>{item}</h3>
+      ))}
       <hr />
       <input
         type="text"
-        onChange={(event) => handleCity(event.target.value)}
-        placeholder="Enter City"
+        onChange={(e) => handleAge(e.target.value)}
+        placeholder="Enter Last User Age"
       />
-      <h3>Name: {data.name}</h3>
-      <h3>City: {data.address.city}</h3>
-      <h3>Country: {data.address.country}</h3>
+      {dataInDetails.map((item, index) => (
+        <h3 key={index}>
+          {item.name}, {item.age}, {item.email}
+        </h3>
+      ))}
     </div>
   );
 }
