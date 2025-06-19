@@ -1,20 +1,24 @@
-import { useId } from "react";
-
 function App() {
   return (
     <div>
-      <h1>useId Hook</h1>
-      <FormGroup />
-      <FormGroup />
+      <h1>Fragment</h1>
+      <Data />
+      <Data />
+      <Data />
+      <Data />
+      <Data />
+      <Data />
+      <Data />
+      <Data />
+      <Data />
     </div>
   );
 }
-function FormGroup() {
-  const id = useId();
+function Data() {
   return (
     <div>
-      <label htmlFor={id}>Email</label>
-      <input id={id} type="email" />
+      <h1>Data Function</h1>
+      <h2>Ankit Chauhan</h2>
     </div>
   );
 }
