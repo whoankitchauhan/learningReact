@@ -1,3 +1,4 @@
+
 function App() {
   return (
     <div>
@@ -14,12 +15,13 @@ function App() {
     </div>
   );
 }
+
 function Data() {
   return (
-    <div>
+    <>
       <h1>Data Function</h1>
       <h2>Ankit Chauhan</h2>
-    </div>
+    </>
   );
 }
 
