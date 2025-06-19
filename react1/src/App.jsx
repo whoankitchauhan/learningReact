@@ -1,70 +1,60 @@
-import { useState } from "react";
+import { useActionState } from "react";
 
 function App() {
-  const [data, setData] = useState(["Ankit", "Rahul", "Manish"]);
+  const handleSubmit = async (prevdata, formData) => {
+    let name = formData.get("name");
+    let password = formData.get("password");
 
-  const [dataInDetails, setDataInDetails] = useState([
-    {
-      name: "Ankit",
-      age: 23,
-      email: "ankit@gmail.com",
-    },
-    {
-      name: "Aryan",
-      age: 23,
-      email: "rahul@gmail.com",
-    },
-    {
-      name: "Rohan",
-      age: 23,
-      email: "manish@gmail.com",
-    },
-  ]);
-
-  const handleUser = (lastName) => {
-    setData((prev) => {
-      const updated = [...prev];
-      updated[updated.length - 1] = lastName;
-      return updated;
-    });
-  };
-
-  const handleAge = (lastAge) => {
-    setDataInDetails((prev) => {
-      const updated = [...prev];
-      updated[updated.length - 1] = {
-        ...updated[updated.length - 1],
-        age: Number(lastAge), // ensure it's a number
+    console.log("HandleSubmit Function Called");
+    await new Promise((res) => setTimeout(res, 3000));
+    console.log("Name : ", name);
+    console.log("Password : ", password);
+    if (name && password) {
+      return {
+        message: "Data Submitted",
+        name,
+        password,
       };
-      return updated;
-    });
+    } else {
+      return {
+        error: "Enter Both the Fields",
+        name,
+        password,
+      };
+    }
   };
-
+  const [data, action, pending] = useActionState(handleSubmit, undefined);
+  console.log(data);
   return (
     <div>
-      <h1>Updating Array in States</h1>
+      <h1>useActionState Hook </h1>
+      <form action={action}>
+        <input
+          defaultValue={data?.name}
+          type="text"
+          placeholder="Enter Name"
+          name="name"
+        />
+        <br />
+        <br />
+        <input
+          defaultValue={data?.name}
+          type="password"
+          placeholder="Enter Password"
+          name="password"
+        />
+        <br />
+        <br />
+        <button disabled={pending}>Submit Data</button>
+        {pending && <p style={{ color: "blue" }}>Submitting...</p>}
+        <br />
+        <br />
+      </form>
+      {data?.error && <span style={{ color: "red" }}>{data?.error}</span>}
+      {data?.message && <span style={{ color: "green" }}>{data?.message}</span>}
 
-      <input
-        type="text"
-        onChange={(e) => handleUser(e.target.value)}
-        placeholder="Update Last Name"
-      />
-      {data.map((item, index) => (
-        <h3 key={index}>{item}</h3>
-      ))}
-
-      <hr />
-
-      <input
-        type="number"
-        onChange={(e) => handleAge(e.target.value)}
-        placeholder="Update Last User Age"
-      />
-      {dataInDetails.map((item, index) => (
-        <h3 key={index}>
-          {item.name}, {item.age}, {item.email}
-        </h3>
-      ))}
+      <h3>Name : {data?.name}</h3>
+      <h3>Password : {data?.password}</h3>
     </div>
   );
 }
