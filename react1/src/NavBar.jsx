@@ -11,19 +11,16 @@ function NavBar() {
       <div>
         <ul>
           <li>
-            <Link className="link" to="/">
-              Home
-            </Link>
+            <Link className="link" to="/">Home</Link>
           </li>
           <li>
-            <Link className="link" to="/About">
-              About
-            </Link>
-          </li>{" "}
+            <Link className="link" to="/About">About</Link>
+          </li>
           <li>
-            <Link className="link" to="/Contact">
-              Contact
-            </Link>
+            <Link className="link" to="/Contact">Contact</Link>
+          </li>
+                    <li>
+            <Link className="link" to="/College">College</Link>
           </li>
         </ul>
       </div>

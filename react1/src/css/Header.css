@@ -29,6 +29,16 @@
   color: #333;
   font-weight: 500;
   transition: color 0.3s ease;
+  font-size: large;
+}
+
+.Coll-link{
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  font-size: large;
+  margin: 20px;
 }
 
 /* Hover effect for links */
