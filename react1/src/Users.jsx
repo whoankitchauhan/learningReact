@@ -29,10 +29,10 @@ function Users() {
       {usersData.map((item) => (
         <div key={item.id}>
           <h3>
-            <Link to={"/users/" + item.id}>{item.name}</Link>
+            <Link to={`/users/${item.id}/${item.name}`}>{item.name}</Link>
           </h3>
         </div>
-      ))}
+      ))} 
     </>
   );
 }

@@ -17,16 +17,14 @@ function App() {
       {/* ✅ Layout route using NavBar with nested pages */}
       <Route element={<NavBar />}>
         <Route path="/" element={<Home />} />
-        <Route path="/users" element={<Users />} />
-        <Route path="/users/:id" element={<UserDetails/>}/>
+        <Route path="/users/list?" element={<Users />} />
+        <Route path="/users/:id/:name" element={<UserDetails />} />
         <Route path="india">
-               <Route path="/india/user">
-          <Route path="/india/user/about" element={<About />} />
-          <Route path="/india/user/contact" element={<Contact />} />
+          <Route path="/india/user">
+            <Route path="/india/user/about" element={<About />} />
+            <Route path="/india/user/contact" element={<Contact />} />
+          </Route>
         </Route>
-        </Route>
-   
-
       </Route>
 
       {/* ✅ Nested college route with index as Student */}
