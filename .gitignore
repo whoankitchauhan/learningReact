@@ -1,0 +1,14 @@
+# Ignore node_modules (always!)
+node_modules/
+
+# Ignore JSON server database and config if you want
+db.json
+*.log
+
+# Ignore system files
+.DS_Store
+
+# Ignore environment and build files
+.env
+dist/
+build/
