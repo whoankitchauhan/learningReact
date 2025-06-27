@@ -1,35 +1,45 @@
 import { useEffect, useState } from "react";
 
 function App() {
-  const [users, setUsers] = useState([]);
+  const [userData, setUserData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getUserData();
   }, []);
 
-  async function getUserData() {
-    const url = "https://dummyjson.com/users";
+  const getUserData = async () => {
+    const url = "http://localhost:3000/users";
     let response = await fetch(url);
     response = await response.json();
-    setUsers(response.users); // extract "users" array from response
-  }
+    console.log(response);
+    setUserData(response);
+    setLoading(false);
+  };
 
   return (
-    <div className="p-5">
-      <h1 className="text-xl font-bold mb-4">User List</h1>
-      {users?.map((user) => (
-        <div key={user.id} className="p-3 mb-2 border rounded border-cyan-400">
-          <p>
-            <strong>Name:</strong> {user.firstName} {user.lastName}
-          </p>
-          <p>
-            <strong>Email:</strong> {user.email}
-          </p>
-                    <p>
-            <strong>Age:</strong> {user.age}
-          </p>
-        </div>
-      ))}
+    <div className="p-10">
+      <h1 className="text-3xl text-blue-600 font-bold underline mb-6">
+        Integrate JSON Server API and Loader
+      </h1>
+
+      {loading ? (
+        <h2 className="text-xl font-medium text-gray-500">Loading...</h2>
+      ) : (
+        userData.map((user) => (
+          <div key={user.id} className="mb-4 p-4 border rounded bg-gray-50">
+            <h3>
+              <strong>Name:</strong> {user.name}
+            </h3>
+            <h3>
+              <strong>Age:</strong> {user.age}
+            </h3>
+            <h3>
+              <strong>ID:</strong> {user.id}
+            </h3>
+          </div>
+        ))
+      )}
     </div>
   );
 }
