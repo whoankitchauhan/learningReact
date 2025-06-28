@@ -1,9 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 function AddUser() {
-  const navigate = useNavigate();
-
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [email, setEmail] = useState("");
@@ -23,7 +20,6 @@ function AddUser() {
       setName("");
       setAge("");
       setEmail("");
-      navigate("/");
     }
   };
 
