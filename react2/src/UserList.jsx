@@ -28,7 +28,7 @@ function UserList() {
     getUserData();
   };
   const editUser = (id) => {
-    navigate("/edit/"+id);
+    navigate("/edit/" + id);
   };
   return (
     <div className="p-10">
@@ -43,13 +43,16 @@ function UserList() {
             {/* Left: User Info */}
             <div className="text-left">
               <h3>
+                <strong>ID:</strong> {user.id}
+              </h3>
+              <h3>
                 <strong>Name:</strong> {user.name}
               </h3>
               <h3>
                 <strong>Age:</strong> {user.age}
               </h3>
               <h3>
-                <strong>ID:</strong> {user.id}
+                <strong>Email:</strong> {user.email}
               </h3>
             </div>
             <div>
