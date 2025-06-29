@@ -6,6 +6,8 @@ import EditUser from "./EditUser";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
+
 function App() {
   return (
     <div className="p-10 ">
@@ -30,6 +32,7 @@ function App() {
         <Route path="edit/:id" element={<EditUser />} />
       </Routes>
       <ToastContainer position="top-center" />
+
     </div>
   );
 }
