@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function EditUser() {
   const { id } = useParams();
@@ -32,7 +33,10 @@ function EditUser() {
     });
     response = await response.json();
     if (response) {
-      alert("User Data Updated");
+      toast.success("✅ User updated successfully!");
+      setName("");
+      setAge("");
+      setEmail("");
       navigate("/");
     }
   };
